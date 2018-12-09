@@ -1,0 +1,24 @@
+<section class="taglist">
+ <h2>我的分类</h2>
+ <ul>
+     {% for category in category_list %}
+      <li><a href="/{{ username }}/category/{{ category.title }}/">{{ category.title }}({{ category.c }})</a></li>
+    {% endfor %}
+</ul>
+</section>
+<section class="taglist">
+ <h2>我的标签</h2>
+ <ul>
+     {% for tag in tag_list %}
+      <li><a href="/{{ username }}/tag/{{ tag.title }}/">{{ tag.title }}({{ tag.c }})</a></li>
+    {% endfor %}
+</ul>
+</section>
+<section class="taglist">
+ <h2>日期归档</h2>
+ <ul>
+     {% for archive in archive_list %}
+      <li><a href="/{{ username }}/archive/{{ archive.create_ym }}/">{{ archive.create_ym }}({{ archive.c }})</a></li>
+    {% endfor %}
+</ul>
+</section>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Blog</title>
+<link rel="stylesheet" href="/static/css/styles.css">
+<script src="/static/jquery-3.2.1.min.js"></script>
+<script src="static/js/silder.js"></script>
+<!--[if lt IE 9]>
+<script src="static/js/modernizr.js"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+ <nav id="nav">
+   <ul>
+    <li><a href="/index">My Blog</a></li>
+    <li><a href="/login" target="_blank">登陆</a></li>
+    <li><a href="/logout" target="_blank">注销</a></li>
+    <li><a href="/backend" target="_blank">管理</a></li>
+   </ul>
+<!--获取当前页导航 高亮显示标题-->
+ </nav>
+ </header>
+ <div class="mainContent">
+    <aside>
+      <div class="avatar">
+        <a href="#" style="background-image: url('media/{{ request.user.avatar }}'); background-repeat: no-repeat"><span>{{ request.user.username }}</span></a>
+      </div>
+      <section class="topspaceinfo">
+        <h1>执子之手，与子偕老</h1>
+        <p>于千万人之中，我遇见了我所遇见的人....</p>
+      </section>
+      <div class="userinfo"> 
+        <p class="q-fans"> 粉丝：<a href="/" target="_blank">167</a></p> 
+        <p class="btns"><a href="/" target="_blank" >私信</a><a href="/" target="_blank">相册</a><a href="/" target="_blank">存档</a></p>   
+      </div>
+      {% load my_tags %}
+      {% show_panel request.user.username %}
+    </aside>
+    <div class="blogitem">
+          <article>
+              {% block articlecontent %}
+
+              {% endblock %}
+          </article>
+
+    </div>
+ </div>
+<footer>
+   <div class="Copyright">
+     <ul>
+       <a href="/">帮助中心</a><a href="/">空间客服</a><a href="/">投诉中心</a><a href="/">空间协议</a>
+     </ul>
+   </div>
+ </footer>
+</body>
+</html>
